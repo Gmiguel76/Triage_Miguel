@@ -1,4 +1,4 @@
-let pacientes = [];
+let pacientes = JSON.parse(localStorage.getItem('pacientes')) || [];
 
 function agregarPrioridad(sintoma){
     if (sintoma === "dificultad respiratoria grave" || sintoma ==="convulsiones" || sintoma === "traumatismo grave"){
@@ -25,6 +25,8 @@ return {nombre, edad, sintoma, prioridad};
 function agregarPacienteTabla() {
     let nuevoPacienteIngresado = ingresarPaciente();
     pacientes.push(nuevoPacienteIngresado);
+
+    localStorage.setItem('pacientes', JSON.stringify(pacientes));
 
     
 const tablaPacientes = document.getElementById("tablaPacientes")
