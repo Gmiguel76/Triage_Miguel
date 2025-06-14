@@ -48,3 +48,10 @@ celdaPrioridad.textContent = nuevoPacienteIngresado.prioridad;
 
 document.getElementById("botonIngreso").addEventListener("click", agregarPacienteTabla);
 
+document.getElementById("botonBorrar").addEventListener("click", () => {
+    if (confirm("¿Estás seguro que querés borrar todos los pacientes?")) {
+        localStorage.removeItem('pacientes');
+        location.reload();
+    }
+});
+
